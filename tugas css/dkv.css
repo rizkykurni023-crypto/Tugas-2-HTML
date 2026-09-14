@@ -1,0 +1,31 @@
+h1 {
+    text-align: center;
+    padding: 250px;
+    background-color: rgb(97, 99, 98);
+}
+
+p {
+    color: rgb(16, 16, 16);
+    font-weight: bold;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: 20px;
+}
+
+body {
+    background-color: white;
+}
