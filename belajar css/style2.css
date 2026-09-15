@@ -1,0 +1,33 @@
+/* Soal 1 */
+p {
+    color: #333;
+    line-heights: 1.6;
+}
+
+/* Soal 2 */
+.tombol {
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+}
+
+/* Soal 3 */
+#header {
+    background-color: #333;
+    color: white
+    padding: 20px;
+}
+
+/* Soal 4 */
+nav a {
+    color: white
+    text-decoration: none;
+}
+
+/* Soal 5 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
