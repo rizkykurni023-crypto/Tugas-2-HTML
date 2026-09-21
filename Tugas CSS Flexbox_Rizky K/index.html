@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KULINER SMKN 1 SUBANG</title>
+
+    <style>
+        /* Selector universal */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        /* Selector tag */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fb;
+            color: #1f2937;
+        }
+
+        /* Selector class */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            background-color: #1e3a8a;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Selector child */
+        .menu > li {
+            display: inline-block;
+            list-style: none;
+            margin-left: 25px;
+        }
+
+        /* Selector descendant */
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        /* Pseudo-class */
+        .menu a:hover,
+        .menu a.active {
+            color: #facc15;
+        }
+
+        /* Selector ID */
+        #home {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            padding: 80px 8%;
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .hero-text h1 {
+            font-size: 45px;
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        /* Selector atribut */
+        a[href="#kontak"] {
+            background-color: #f59e0b;
+            padding: 12px 20px;
+            border-radius: 8px;
+        }
+
+        a[href="#kontak"]:hover {
+            background-color: #d97706;
+            color: white;
+        }
+
+        .hero-image {
+            font-size: 140px;
+        }
+
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #1e3a8a;
+            margin-bottom: 35px;
+            font-size: 32px;
+        }
+
+        /* Pseudo-element */
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 70px;
+            height: 4px;
+            margin: 10px auto;
+            background-color: #f59e0b;
+            border-radius: 5px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .cards2 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .cards3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card3 {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card3 img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .card3 h3 {
+            color: #1e3a8a;
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        .card3:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+        }
+        .card2 {
+            background-color: white;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card2 img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .card2 h3 {
+            color: #1e3a8a;
+            font-size: 14px;
+        }
+
+        .card2:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+        }
+
+        .card .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #1e3a8a;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            line-height: 1.6;
+            color: #64748b;
+        }
+
+        .about {
+            background-color: white;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.8;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 5px rgba(37, 99, 235, 0.4);
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 6px;
+            background-color: #1e3a8a;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #2563eb;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #1e3a8a;
+            color: white;
+        }
+
+        /* Tombol menu mobile */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* Tampilan tablet dan handphone */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .menu {
+                display: none;
+                position: absolute;
+                top: 70px;
+                right: 8%;
+                width: 200px;
+                padding: 15px;
+                background-color: #1e3a8a;
+                border-radius: 8px;
+            }
+
+            .menu.show {
+                display: block;
+            }
+
+            .menu > li {
+                display: block;
+                margin: 15px 0;
+            }
+
+            #home {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 35px;
+            }
+
+            .hero-image {
+                font-size: 90px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .cards2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cards3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav class="navbar">
+        <div class="logo">SMKN 1 SUBANG</div>
+
+        <button class="menu-toggle" id="menuToggle">
+            ☰
+        </button>
+
+        <ul class="menu" id="menu">
+            <li><a href="#home" class="active">Beranda</a></li>
+            <li><a href="#kompetensi">Kompetensi Dasar</a></li>
+            <li><a href="#kegiatan">Foto Kegiatan</a></li>
+            <li><a href="#dudi">Dudi</a></li>
+        </ul>
+    </nav>
+
+    <!-- Bagian Beranda -->
+    <main>
+        <section id="home">
+            <div class="hero-text">
+                <h1>KULINER</h1>
+                <p>
+                    Kompetensi Keahlian Tata Boga merupakan salah satu jurusan atau kompetensi yang memberikan pelajaran di Bidang Pengolahan dan Penyajian Makanan Baik tradisional maupun internasional, dan Tata Hidang/Table Manner.
+                </p>
+
+                <a href="#kontak">Hubungi Kami</a>
+            </div>
+
+            <div class="hero-image">
+                <img src="foto/kuliner.png" alt="">
+            </div>
+        </section>
+
+        <!-- Bagian kompetensi -->
+        <section id="kompetensi">
+            <h2 class="section-title">Kompetensi Dasar</h2>
+
+            <div class="cards">
+                <div class="card">
+                    <h3><b>Ilmu Gizi</b></h3>
+                </div>
+
+                <div class="card">
+                    <h3><b>Pengetahuan Bahan Makanan</b></h3>
+                </div>
+
+                <div class="card">
+                    <h3><b>Tata Hidang</b></h3>
+                </div>
+
+                <div class="card">
+                    <h3><b>Pengolahan dan Penyajian Makanan</b></h3>
+                </div>
+
+                <div class="card">
+                    <h3><b>Produk Cake, dan Kue Indonesia</b></h3>
+                </div>
+
+                <div class="card">
+                    <h3><b>Produk Pastry dan Bakery</b></h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian kegiatan -->
+        <section id="kegiatan">
+            <h2 class="section-title">Foto Kegiatan</h2>
+
+            <div class="cards2">
+                <div class="card2">
+                    <img src="foto/pogi1.png" alt="">
+                    <h3><b>SINKRONISASI KURIKULUM PROGRAM KEAHLIAN TATA BOGA BERSAMA HOTEL ASTON PASTEUR BANDUNG</b></h3>
+                </div>
+
+                <div class="card2">
+                    <img src="foto/pogi2.jpg" alt="">
+                    <h3><b>Guru Tamu dari Hotel Aston Pasteur Bandung</b></h3>
+                </div>
+
+                <div class="card2">
+                    <img src="foto/pogi3.jpg" alt="">
+                    <h3><b>Guru Tamu dari Hotel Aston Pasteur Bandung</b></h3>
+                </div>
+
+                <div class="card2">
+                    <img src="foto/pogi4.jpeg" alt="">
+                    <h3><b>Guru Tamu dari Hotel Aston Pasteur Bandung</b></h3>
+                </div>
+
+                <div class="card2">
+                    <img src="foto/pogi5.jpg" alt="">
+                    <h3><b>Dokumentasi Kegiatan Unit Produksi</b></h3>
+                </div>
+
+                <div class="card2">
+                    <img src="foto/pogi6.jpeg" alt="">
+                    <h3><b>Guru Tamu dari Hotel Aston Pasteur Bandung</b></h3>
+                </div>
+
+                <div class="card2">
+                    <img src="foto/pogi7.jpg" alt="">
+                    <h3><b>Guru Tamu dari Hotel Aston Pasteur Bandung</b></h3>
+                </div>
+
+                <div class="card2">
+                    <img src="foto/pogi8.jpg" alt="">
+                    <h3><b>Guru Tamu dari Hotel Aston Pasteur Bandung</b></h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian dudi -->
+        <section id="dudi">
+            <h2 class="section-title">Dudi</h2>
+
+            <div class="cards3">
+                <div class="card3">
+                    <h3><b>HOTEL BETHA SUBANG</b></h3>
+                    <img src="foto/betha.png" alt="">
+                </div>
+
+                <div class="card3">
+                    <h3><b>GRANT HOTEL</b></h3>
+                    <img src="foto/grant.png" alt="">
+                </div>
+
+                <div class="card3">
+                    <h3><b>HOTEL ASTON PASTEUR BANDUNG</b></h3>
+                    <img src="foto/aston.png" alt="">
+                </div>
+
+                <div class="card3">
+                    <h3><b>GH.UNIVERSAL HOTEL</b></h3>
+                    <img src="foto/universal.png" alt="">
+                </div>
+
+                <div class="card3">
+                    <h3><b>LASKA HOTEL SUBANG</b></h3>
+                    <img src="foto/laska.png" alt="">
+                </div>
+
+                <div class="card3">
+                    <h3><b>THE GAIA HOTEL BANDUNG</b></h3>
+                    <img src="foto/gaia.png" alt="">
+                </div>
+            </div>
+        </section>
+
+    <footer>
+        <p>&copy; 2026 BelajarWeb. Semua hak dilindungi.</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector("#menuToggle");
+        const menu = document.querySelector("#menu");
+
+        menuToggle.addEventListener("click", function () {
+            menu.classList.toggle("show");
+        });
+
+        const menuLinks = document.querySelectorAll(".menu a");
+
+        menuLinks.forEach(function (link) {
+            link.addEventListener("click", function () {
+                menuLinks.forEach(function (item) {
+                    item.classList.remove("active");
+                });
+
+                link.classList.add("active");
+                menu.classList.remove("show");
+            });
+        });
+    </script>
+
+</body>
+</html>

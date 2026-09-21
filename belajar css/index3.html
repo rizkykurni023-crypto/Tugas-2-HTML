@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Sederhana</title>
+
+    <style>
+        /* Selector universal */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        /* Selector tag */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fb;
+            color: #1f2937;
+        }
+
+        /* Selector class */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            background-color: #1e3a8a;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Selector child */
+        .menu > li {
+            display: inline-block;
+            list-style: none;
+            margin-left: 25px;
+        }
+
+        /* Selector descendant */
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        /* Pseudo-class */
+        .menu a:hover,
+        .menu a.active {
+            color: #facc15;
+        }
+
+        /* Selector ID */
+        #home {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            padding: 80px 8%;
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .hero-text h1 {
+            font-size: 45px;
+            color: #1e3a8a;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        /* Selector atribut */
+        a[href="#kontak"] {
+            background-color: #f59e0b;
+            padding: 12px 20px;
+            border-radius: 8px;
+        }
+
+        a[href="#kontak"]:hover {
+            background-color: #d97706;
+            color: white;
+        }
+
+        .hero-image {
+            font-size: 140px;
+        }
+
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #1e3a8a;
+            margin-bottom: 35px;
+            font-size: 32px;
+        }
+
+        /* Pseudo-element */
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 70px;
+            height: 4px;
+            margin: 10px auto;
+            background-color: #f59e0b;
+            border-radius: 5px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+        }
+
+        .card .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #1e3a8a;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            line-height: 1.6;
+            color: #64748b;
+        }
+
+        .about {
+            background-color: white;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.8;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 5px rgba(37, 99, 235, 0.4);
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 6px;
+            background-color: #1e3a8a;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #2563eb;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #1e3a8a;
+            color: white;
+        }
+
+        /* Tombol menu mobile */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* Tampilan tablet dan handphone */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .menu {
+                display: none;
+                position: absolute;
+                top: 70px;
+                right: 8%;
+                width: 200px;
+                padding: 15px;
+                background-color: #1e3a8a;
+                border-radius: 8px;
+            }
+
+            .menu.show {
+                display: block;
+            }
+
+            .menu > li {
+                display: block;
+                margin: 15px 0;
+            }
+
+            #home {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 35px;
+            }
+
+            .hero-image {
+                font-size: 90px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav class="navbar">
+        <div class="logo">BelajarWeb</div>
+
+        <button class="menu-toggle" id="menuToggle">
+            ☰
+        </button>
+
+        <ul class="menu" id="menu">
+            <li><a href="#home" class="active">Beranda</a></li>
+            <li><a href="#fitur">Fitur</a></li>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- Bagian Beranda -->
+    <main>
+        <section id="home">
+            <div class="hero-text">
+                <h1>Bangun Website Modern</h1>
+                <p>
+                    Pelajari cara membuat tampilan website sederhana,
+                    menarik, dan responsif menggunakan HTML serta CSS.
+                </p>
+
+                <a href="#kontak">Hubungi Kami</a>
+            </div>
+
+            <div class="hero-image">
+                💻
+            </div>
+        </section>
+
+        <!-- Bagian Fitur -->
+        <section id="fitur">
+            <h2 class="section-title">Fitur Kami</h2>
+
+            <div class="cards">
+                <div class="card">
+                    <div class="icon">🎨</div>
+                    <h3>Desain Menarik</h3>
+                    <p>
+                        Tampilan menggunakan warna, jarak, dan tata letak
+                        yang nyaman dilihat.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">📱</div>
+                    <h3>Responsif</h3>
+                    <p>
+                        Website dapat menyesuaikan tampilan pada laptop,
+                        tablet, dan handphone.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="icon">⚡</div>
+                    <h3>Mudah Digunakan</h3>
+                    <p>
+                        Navigasi sederhana sehingga pengunjung mudah
+                        berpindah halaman.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Tentang -->
+        <section id="tentang" class="about">
+            <h2 class="section-title">Tentang Kami</h2>
+
+            <p>
+                BelajarWeb adalah contoh halaman website sederhana yang dibuat
+                untuk mempelajari penggunaan selector CSS, navigasi, layout,
+                warna, tombol, form, dan desain responsif.
+            </p>
+        </section>
+
+        <!-- Bagian Kontak -->
+        <section id="kontak">
+            <h2 class="section-title">Hubungi Kami</h2>
+
+            <form class="contact-form">
+                <input type="text" placeholder="Nama lengkap">
+                <input type="email" placeholder="Alamat email">
+                <textarea rows="5" placeholder="Tulis pesan Anda"></textarea>
+                <button type="submit">Kirim Pesan</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BelajarWeb. Semua hak dilindungi.</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.querySelector("#menuToggle");
+        const menu = document.querySelector("#menu");
+
+        menuToggle.addEventListener("click", function () {
+            menu.classList.toggle("show");
+        });
+
+        const menuLinks = document.querySelectorAll(".menu a");
+
+        menuLinks.forEach(function (link) {
+            link.addEventListener("click", function () {
+                menuLinks.forEach(function (item) {
+                    item.classList.remove("active");
+                });
+
+                link.classList.add("active");
+                menu.classList.remove("show");
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Wrap - Daftar Menu</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8fafc;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e293b;
+            margin-bottom: 30px;
+        }
+
+        /*
+            Container Flexbox
+        */
+        .menu-container {
+            max-width: 1000px;
+            margin: auto;
+
+            display: flex;
+            flex-direction: row;
+
+            /*
+                Item akan turun ke baris berikutnya
+                jika ruang tidak mencukupi.
+            */
+            flex-wrap: wrap;
+
+            justify-content: center;
+            align-items: stretch;
+            gap: 20px;
+        }
+
+        /*
+            Item Flexbox
+        */
+        .menu-card {
+            flex: 1 1 250px;
+            max-width: 300px;
+
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+            transition: 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        .gambar-menu {
+            font-size: 70px;
+            margin-bottom: 15px;
+        }
+
+        .menu-card h2 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .menu-card p {
+            color: #64748b;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .harga {
+            display: block;
+            color: #dc2626;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .btn-pesan {
+            display: inline-block;
+            padding: 10px 18px;
+            background-color: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .btn-pesan:hover {
+            background-color: #1d4ed8;
+        }
+
+        /*
+            Tampilan layar kecil
+        */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px;
+            }
+
+            .menu-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Daftar Menu Favorit</h1>
+
+    <div class="menu-container">
+
+        <div class="menu-card">
+            <div class="gambar-menu">🍔</div>
+            <h2>Burger</h2>
+            <p>Burger daging sapi dengan keju dan sayuran segar.</p>
+            <span class="harga">Rp25.000</span>
+            <a href="#" class="btn-pesan">Pesan</a>
+        </div>
+
+        <div class="menu-card">
+            <div class="gambar-menu">🍕</div>
+            <h2>Pizza</h2>
+            <p>Pizza dengan topping keju, sosis, dan saus tomat.</p>
+            <span class="harga">Rp45.000</span>
+            <a href="#" class="btn-pesan">Pesan</a>
+        </div>
+
+        <div class="menu-card">
+            <div class="gambar-menu">🍜</div>
+            <h2>Mie Ayam</h2>
+            <p>Mie ayam lengkap dengan ayam, sayuran, dan kuah.</p>
+            <span class="harga">Rp18.000</span>
+            <a href="#" class="btn-pesan">Pesan</a>
+        </div>
+
+        <div class="menu-card">
+            <div class="gambar-menu">🍗</div>
+            <h2>Ayam Goreng</h2>
+            <p>Ayam goreng renyah dengan sambal spesial.</p>
+            <span class="harga">Rp22.000</span>
+            <a href="#" class="btn-pesan">Pesan</a>
+        </div>
+
+        <div class="menu-card">
+            <div class="gambar-menu">🍝</div>
+            <h2>Spaghetti</h2>
+            <p>Spaghetti dengan saus bolognese dan taburan keju.</p>
+            <span class="harga">Rp30.000</span>
+            <a href="#" class="btn-pesan">Pesan</a>
+        </div>
+
+        <div class="menu-card">
+            <div class="gambar-menu">🥤</div>
+            <h2>Es Teh</h2>
+            <p>Minuman teh manis dingin yang menyegarkan.</p>
+            <span class="harga">Rp8.000</span>
+            <a href="#" class="btn-pesan">Pesan</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
