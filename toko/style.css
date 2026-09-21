@@ -1,0 +1,102 @@
+/* Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+}
+
+/* Header */
+
+#header {
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+#header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+/* Container */
+
+.container {
+    max-width: 350px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* Kartu Produk */
+
+.kartu-produk {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Gambar Produk */
+
+.gambar-produk {
+    width: 100%;
+    height: 200px;
+    background-color: #ddd;
+    margin: 0 auto 20px;
+    border-radius: 8px;
+}
+
+/* Nama Produk */
+
+.nama-produk {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Harga */
+
+.harga {
+    font-size: 20px;
+    color: #e74c3c;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Deskripsi */
+
+.deskripsi {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* Tombol */
+
+.tombol {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Footer */
+
+#footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
